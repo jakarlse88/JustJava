@@ -100,15 +100,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Increments quantity of cups.
+     * Increments quantity of cups,
+     * if the current amount is <= 99.
      */
     public void increment(View view) {
-        quantity++;
-        displayQuantity(quantity);
+        if (quantity <= 99) {
+            quantity++;
+            displayQuantity(quantity);
+        } else {
+            displayQuantity(quantity);
+        }
     }
 
     /**
-     * Decrements quantity of cups.
+     * Decrements quantity of cups,
+     * if the current amount is >= 1.
      */
     public void decrement(View view) {
         if (quantity >= 1) {
