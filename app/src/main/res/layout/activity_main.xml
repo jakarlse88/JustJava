@@ -24,21 +24,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <CheckBox
                 android:id="@+id/check_whipped_cream"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="24dp"
+                android:text="Whipped cream"
                 android:onClick="whipMyCream"/>
 
-            <TextView
+            <CheckBox
+                android:id="@+id/check_hot_chocolate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:text="Whipped cream"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:paddingLeft="24dp"
+                android:text="Hot chocolate"
+                android:onClick="chocMyHotolate"/>
 
         </LinearLayout>
 

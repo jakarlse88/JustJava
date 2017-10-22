@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     int quantity = 0;
     int price = 3;
     boolean whippedCream = false;
+    boolean hotChocolate = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,10 @@ public class MainActivity extends AppCompatActivity {
      * @param price is the total price of the order.
      * @return returns a summary.
      */
-    private String createOrderSummary(int price, boolean bool) {
+    private String createOrderSummary(int price, boolean bool1, boolean bool2) {
 
-        return "Name: Jon Karlsen\nWhipped cream? " + bool + "\nQuantity: " + price / 3 + "\nTotal: $" + price + "\nThank you!";
+        return "Name: Jon Karlsen\nWhipped cream? " + bool1 + "\nHot choclate? " + bool2 +
+                "\nQuantity: " + price / 3 + "\nTotal: $" + price + "\nThank you!";
     }
 
     /**
@@ -49,10 +51,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Switches boolean state of hotChocolate variable.
+     */
+    public void chocMyHotolate(View view) {
+        if (!hotChocolate) {
+            hotChocolate = true;
+        } else {
+            hotChocolate = false;
+        }
+    }
+
+    /**
      * Gets whippedCream.
      */
     public boolean getCream() {
         return whippedCream;
+    }
+
+    /**
+     * Gets hotChocolate.
+     */
+    public boolean getChocolate() {
+        return hotChocolate;
     }
 
     /**
@@ -72,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         String priceMessage = "Total: $" + (quantity * price) + "\nThank you!";
         displayMessage(priceMessage);
-        displayMessage(createOrderSummary(calculatePrice(quantity, price), getCream()));
+        displayMessage(createOrderSummary(calculatePrice(quantity, price), getCream(), getChocolate()));
     }
 
     /**
