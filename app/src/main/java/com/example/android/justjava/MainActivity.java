@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
     int price = 3;
+    boolean whippedCream = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,27 @@ public class MainActivity extends AppCompatActivity {
      * @param price is the total price of the order.
      * @return returns a summary.
      */
-    private String createOrderSummary(int price) {
-        return "Name: Jon Karlsen\nQuantity: " + price / 3 + "\nTotal: $" + price + "\nThank you!";
+    private String createOrderSummary(int price, boolean bool) {
+
+        return "Name: Jon Karlsen\nWhipped cream? " + bool + "\nQuantity: " + price / 3 + "\nTotal: $" + price + "\nThank you!";
+    }
+
+    /**
+     * Switches boolean state of whippedCream variable.
+     */
+    public void whipMyCream(View view) {
+        if (!whippedCream) {
+            whippedCream = true;
+        } else {
+            whippedCream = false;
+        }
+    }
+
+    /**
+     * Gets whippedCream.
+     */
+    public boolean getCream() {
+        return whippedCream;
     }
 
     /**
@@ -49,9 +69,10 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+
         String priceMessage = "Total: $" + (quantity * price) + "\nThank you!";
         displayMessage(priceMessage);
-        displayMessage(createOrderSummary(calculatePrice(quantity, price)));
+        displayMessage(createOrderSummary(calculatePrice(quantity, price), getCream()));
     }
 
     /**
