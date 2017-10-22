@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Scroll view to contain main activity -->
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- LinearLayout for name input, checkboxes-->
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!--User name input-->
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
@@ -21,6 +24,7 @@
             android:text="@string/name"
             tools:ignore="RtlHardcoded" />
 
+        <!--Choose toppings-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +60,7 @@
 
         </LinearLayout>
 
+        <!--Display, choose quantity-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +84,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
                 android:onClick="decrement"
-                android:text="@string/plus"
+                android:text="@string/minus"
                 />
 
             <TextView
@@ -100,11 +105,12 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
                 android:onClick="increment"
-                android:text="@string/minus"
+                android:text="@string/plus"
                 />
 
         </LinearLayout>
 
+        <!--Display order summary-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,6 +133,7 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"/>
 
+        <!--Place order-->
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
