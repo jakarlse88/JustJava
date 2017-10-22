@@ -20,7 +20,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
-    int price = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         String summary = name;
         summary += "\nWhipped cream? " + hasCream;
         summary += "\nHot chocolate? " + hasChocolate;
-        summary += "\nTotal: $" + (price / 3);
+        summary += "\nTotal: $" + price;
         summary += "\nThank you!";
 
         return summary;
@@ -50,16 +49,26 @@ public class MainActivity extends AppCompatActivity {
      * Calculates the total cost
      * @param quantity      number of cups
      * @param price         of one cup
+     * @param hasCream      whether user wants cream
+     * @param hasChocolate  whether user wants chocolate
      * @return              total price
      */
-    private int calculatePrice(int quantity, int price) {
-        return quantity * price;
+    private int calculatePrice(int quantity, int price,
+                               boolean hasCream, boolean hasChocolate) {
+        if (hasCream) {
+            return (price + 1) * quantity;
+        } else if (hasChocolate) {
+            return (price + 2) * quantity;
+        } else {
+            return price * quantity;
+        }
     }
 
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        int price = 3;
 
         EditText enterName = (EditText) findViewById(R.id.name);
         String name = enterName.getText().toString();
@@ -70,9 +79,8 @@ public class MainActivity extends AppCompatActivity {
         CheckBox checkChocolate = (CheckBox) findViewById(R.id.check_hot_chocolate);
         boolean hasChocolate = checkChocolate.isChecked();
 
-        String priceMessage = "Total: $" + (quantity * price) + "\nThank you!";
-        displayMessage(priceMessage);
-        displayMessage(createOrderSummary(calculatePrice(quantity, price), hasCream, hasChocolate, name));
+        int totalPrice = calculatePrice(quantity, price, hasCream, hasChocolate);
+        displayMessage(createOrderSummary(totalPrice, hasCream, hasChocolate, name));
     }
 
     /**
