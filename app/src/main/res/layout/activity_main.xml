@@ -112,29 +112,6 @@
 
         </LinearLayout>
 
-        <!--Display order summary-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/summary"
-            android:textAllCaps="true"/>
-
-        <TextView
-            android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/init"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
-
         <!--Place order-->
         <Button
             android:layout_width="wrap_content"
