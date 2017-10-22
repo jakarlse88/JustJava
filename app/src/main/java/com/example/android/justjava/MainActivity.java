@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -34,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
      * @param hasChocolate  whether the customer wants hot chocolate
      * @return              the complete summary
      */
-    private String createOrderSummary(int price, boolean hasCream, boolean hasChocolate) {
-        String summary = "Name: Jon Karlsen";
+    private String createOrderSummary(int price, boolean hasCream, boolean hasChocolate,
+                                      String name) {
+        String summary = name;
         summary += "\nWhipped cream? " + hasCream;
         summary += "\nHot chocolate? " + hasChocolate;
         summary += "\nTotal: $" + (price / 3);
@@ -46,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Calculates the total cost
-     * @param quantity is the amount of cups
-     * @param price is the price of one cup
-     * @return
+     * @param quantity      number of cups
+     * @param price         of one cup
+     * @return              total price
      */
     private int calculatePrice(int quantity, int price) {
         return quantity * price;
@@ -59,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
 
+        EditText enterName = (EditText) findViewById(R.id.name);
+        String name = enterName.getText().toString();
+
         CheckBox checkCream = (CheckBox) findViewById(R.id.check_whipped_cream);
         boolean hasCream = checkCream.isChecked();
 
@@ -67,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         String priceMessage = "Total: $" + (quantity * price) + "\nThank you!";
         displayMessage(priceMessage);
-        displayMessage(createOrderSummary(calculatePrice(quantity, price), hasCream, hasChocolate));
+        displayMessage(createOrderSummary(calculatePrice(quantity, price), hasCream, hasChocolate, name));
     }
 
     /**
