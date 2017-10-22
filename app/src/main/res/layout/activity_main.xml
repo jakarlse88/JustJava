@@ -31,16 +31,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="24dp"
-                android:text="Whipped cream"
-                android:onClick="whipMyCream"/>
+                android:text="Whipped cream" />
 
             <CheckBox
                 android:id="@+id/check_hot_chocolate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="24dp"
-                android:text="Hot chocolate"
-                android:onClick="chocMyHotolate"/>
+                android:text="Hot chocolate" />
 
         </LinearLayout>
 
